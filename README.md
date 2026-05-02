@@ -136,12 +136,12 @@ Historical library of weekly macro playbooks and situational flash reports. PDF 
 
 **Insiders**
 
-- **Live SEC Form 4 Feed** — Real-time feed of stock trades filed by officers, directors, and 10%+ holders, sourced directly from SEC Form 4. Shows role (Officer / Director / 10% Owner), dollar amount, transaction description, total insider count, trade count, buys, and sells.
+- **Live Insider Feed** — Real-time feed of stock trades filed by officers, directors, and 10%+ holders. Shows role (Officer / Director / 10% Owner), dollar amount, transaction description, total insider count, trade count, buys, and sells.
 - **Ticker Sidebar** — Active tickers grouped by company with buy/sell counts. Search by ticker or insider name, filter by ALL / BUYS / SELLS / EXCHANGE.
 
 **COT Positioning**
 
-- **Positioning Tape** — CFTC Commitment of Traders data ranked by 52-week z-score for NQ, BTC, GC, ES, ZN, DX, and CL.
+- **Positioning Tape** — Commitment of Traders data ranked by 52-week z-score for NQ, BTC, GC, ES, ZN, DX, and CL.
 - **Instrument Drill-Down** — Detailed positioning view for any selected instrument: net speculative positioning in contracts, 52W z-score, extreme threshold percentage, non-commercial longs/shorts, and a 30-week historical chart.
 
 ---
@@ -160,7 +160,7 @@ Rolling correlation heatmap between crude, energy equities, natural gas, and the
 
 **Vessel Intelligence**
 
-- **Live Tanker Map** — Real-time global tanker positions via AIS data. Click any vessel for MMSI, status, load factor, speed, and destination. Fleet load and transit activity (High / Normal / Low) displayed as aggregate metrics. Chokepoint congestion alerts for Hormuz, Suez, and Bab-el-Mandeb.
+- **Live Tanker Map** — Real-time global tanker positions updated live. Click any vessel for MMSI, status, load factor, speed, and destination. Fleet load and transit activity (High / Normal / Low) displayed as aggregate metrics. Chokepoint congestion alerts for Hormuz, Suez, and Bab-el-Mandeb.
 - **Global Flow Intel** — Fleet metrics and composition breakdown: Transit Index in MBBL on water, fleet utilization percentage, and fleet split across VLCC, Suezmax, Aframax, Panamax, MR, and small tankers.
 
 ---
@@ -177,7 +177,7 @@ Free tier includes the Macro Dashboard, Sector Rotation, and Calendars. Pro (€
 
 ## Stack
 
-React + Vite frontend, FastAPI backend, Supabase (Postgres), Redis. ML layer: FinBERT for sentiment analysis on SEC filings and earnings calls, XGBoost for volatility forecasting, PCA for macro regime detection, OpenCV for satellite image processing. Deployed on GCP behind Caddy.
+React + Vite frontend, FastAPI backend, Supabase (Postgres), Redis. ML layer: FinBERT for financial sentiment analysis, XGBoost for volatility forecasting, PCA for macro regime detection, OpenCV for satellite image processing. Deployed on GCP behind Caddy.
 
 ---
 
