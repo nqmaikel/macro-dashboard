@@ -1,167 +1,178 @@
 # macro-dashboard
 
-A trading terminal that consolidates macro data, options flow, sector positioning, calendars, and insider activity into one place.
+A trading terminal that consolidates macro data, options positioning, sector rotation, calendars, and insider activity into one place.
 
 **[Try free at the-macro-dashboard.com](https://the-macro-dashboard.com)**
 
 ---
 
-![Macro Dashboard](screenshots/macro.webp)
+![Terminal](screenshots/01_landing.png)
 
 ---
 
 ## Macro & Econ
 
-Central bank liquidity, yield dynamics, and macro regime intelligence. Four sub-sections: Economy & Rates, Risk & Sentiment, Global Matrix, and Seasonals.
+Central bank liquidity, yield dynamics, and macro regime intelligence across four sub-sections: Economy & Rates, Risk & Sentiment, Global Matrix, and Seasonals.
+
+![Macro & Econ](screenshots/02_macro_econ.png)
 
 **Economy & Rates**
 
-- **Fed Net Liquidity** — Fed Balance Sheet minus TGA minus RRP. The primary structural driver of risk asset prices. Tracks each component (Fed Balance Sheet, Treasury General Account, Reverse Repo) separately with a net liquidity trend signal.
-- **Implied Volatility Term Structure** — IV percentile and historical range across maturities. Detects vol regime shifts before price moves. Displays IV percentile, 52W range, regime label (Normal / Elevated / Stressed), and contango/backwardation status.
+- **Fed Net Liquidity** — Fed Balance Sheet minus TGA minus RRP. Tracks each component separately with a net liquidity trend and impact signal.
+- **Implied Volatility Term Structure** — IV percentile and historical range across maturities. Regime label (Normal / Elevated / Stressed) and contango/backwardation status.
 - **Yield Curve Evolution** — Full term structure 1M through 30Y with today, 1 month ago, and 1 year ago overlays. Inversion alert included.
-- **Fed Funds Risk-Neutral Path (ACM)** — Market-implied rate trajectory from the ACM Term Structure Model. Shows current target range, implied rate, cut/pause/hike probabilities, and next FOMC date.
+- **Fed Funds Risk-Neutral Path** — Market-implied rate trajectory with per-meeting cut/pause/hike probabilities and next FOMC date.
 
 **Risk & Sentiment**
 
-- **Risk Composite** — Multi-model score (0–100) combining VIX, VVIX, and the Geopolitical Risk Index (GPR) into a single regime signal.
-- **Social Search Concern** — NLP-driven Google Trends tracking for fear-based keywords: Recession, Inflation, Mortgage Help. Threshold alert when search volume crosses elevated levels.
-- **Corporate Credit Spread (OAS)** — Option-adjusted spread gauge with a semicircle meter. High readings indicate banks are pricing in elevated corporate default risk — a leading bankruptcy indicator.
-- **Consumer Sentiment (UMich)** — University of Michigan confidence index with historical chart and trend direction. Leading indicator for consumer spending.
+- **Risk Composite** — Score (0–100) combining VIX, VVIX, and Geopolitical Risk Index (GPR) into a single regime signal.
+- **Social Search Concern** — Tracks fear-based search trends: Recession, Inflation, Mortgage Help. Threshold alert on elevated readings.
+- **Corporate Credit Spread (OAS)** — Option-adjusted spread gauge with a semicircle meter. Leading indicator for corporate default risk.
+- **Consumer Sentiment (UMich)** — University of Michigan confidence index with historical chart and trend direction.
 
 **Global Matrix**
 
-- **Global Economic Indicators** — Interactive cross-country comparison of GDP growth, CPI inflation, and benchmark rates for G10 economies. Toggle between world stats and Eurozone, switch between linear and log scale.
+- **Global Economic Indicators** — Interactive cross-country comparison of GDP growth, CPI, and benchmark rates for G10 economies. Toggle Eurozone view and linear/log scale.
 
 **Seasonals**
 
-- **Seasonal Pattern Charts** — Average realized volatility and price seasonal maps over up to 15 years of history. 5Y / 10Y / 15Y lookback, price mode and volatility mode (21-day rolling standard deviation), covering spot markets, indices, interest rates, bonds, and European markets.
+![Seasonals](screenshots/03_seasonals.png)
+
+- **Seasonal Pattern Charts** — Average realized volatility and price seasonal maps over up to 15 years of history. 5Y / 10Y / 15Y lookback, price and volatility mode (21-day rolling std), covering spot markets, indices, interest rates, bonds, and European markets.
 
 ---
 
 ## Sector Rotation
 
-![Sector Rotation](screenshots/sector_rotation.webp)
-
 Multi-signal sector flow scoring, rotation dynamics, and volatility positioning across all 11 GICS sectors.
+
+![Sector Heatmap](screenshots/04_sector_heatmap.png)
 
 **Sector Heatmap**
 
-Per-sector scoring grid updated live. Each sector shows flow probability, RS-SPY, drawdown, RSI, MACD signal, and CMF (accumulation/distribution). Regime classification runs from Strong Bull to Strong Bear. The heatmap also flags structural edge/gap continuation, options flow probability per sector, and relative strength vs SPY.
+Per-sector scoring grid updated live. Each sector shows flow probability, RS-SPY, drawdown, RSI, MACD signal, and CMF (accumulation/distribution). Regime classification from Strong Bull to Strong Bear. Flags structural edge/gap continuation, institutional accumulation, and relative strength vs SPY per sector.
 
 **Relative Rotation Graph (RRG)**
 
-Scatterplot of 11 sectors mapped across Leading, Weakening, Lagging, and Improving quadrants relative to SPY. Uses JdK RS-Ratio on the x-axis and JdK RS-Momentum on the y-axis with a 12-week rotation trail per sector and a full sector matrix sidebar.
+Scatterplot of 11 sectors across Leading, Weakening, Lagging, and Improving quadrants relative to SPY. JdK RS-Ratio on the x-axis and JdK RS-Momentum on the y-axis with a 12-week rotation trail per sector.
 
 **Stock Battlefield**
 
-2D grid mapping IV Rank against Risk-Reversal to assess volatility cost and directional bias simultaneously. Four quadrants: Cheap/Expensive IV crossed with Bullish/Bearish risk-reversal. Toggle between individual watchlist and sector view.
+2D grid mapping IV Rank against Risk-Reversal. Four quadrants: Cheap/Expensive IV crossed with Bullish/Bearish directional bias. Toggle between watchlist and sector view.
 
 **PCA**
 
-Principal Component Analysis of sector returns to isolate underlying market factor exposures and co-movement. Shows PC1/PC2 factor loadings, explained variance, and sector clustering.
+![Sector PCA](screenshots/05_sector_pca.png)
+
+3D Sector Cluster Map using Principal Component Analysis of sector returns — PC1, PC2, PC3 with explained variance. Sectors that cluster together move in correlated patterns; distant sectors are useful for diversification. Color represents 30-day performance.
 
 ---
 
 ## Calendars
 
-![Calendars](screenshots/calendars.webp)
-
 Economic events, earnings, options expiry cycles, and G6 central bank rate path expectations.
 
 **Economic Calendar**
 
-Full macro event calendar for the next 7 days with consensus estimates, prior readings, and a volume/impact column. Filterable by impact level (High / Medium / Low) and currency (USD, EUR, GBP, JPY, CAD, AUD, CHF, NZD). Today-only and full-week toggle.
+Full macro event calendar for the next 7 days with consensus estimates, prior readings, and impact scoring. Filterable by impact level (High / Medium / Low) and currency. Today-only or full-week toggle.
 
 **Earnings Calendar**
+
+![Earnings](screenshots/06_earnings.png)
 
 Top earnings reports for the next 5 trading days (Monday through Friday) with beat probability percentage, EPS estimate, and revenue estimate with percentage change. Live sync.
 
 **OpEx Calendar**
 
-Monthly, quarterly, and quad-witching options expiration dates with days remaining and post-OpEx SPY/QQQ price context. Gamma exposure level label per cycle.
+Monthly, quarterly, and quad-witching options expiration dates with days remaining and post-OpEx SPY/QQQ price context.
 
 **Rate Probability — G6 Central Banks**
 
-Market-implied rate probabilities for Fed, ECB, BOE, BOJ, RBA, and BOC. Shows current target rate, hold/cut/hike bias, probability percentages, next meeting date, and ACM model decomposition separating rate expectations from term premia.
-
----
-
-## Ticker Terminal
-
-![Ticker Terminal](screenshots/ticker.webp)
-
-Per-stock institutional intelligence: AI briefing, gamma walls, screener, options flow, strategy builder, and live GEX feed.
-
-**Ticker Analyzer**
-
-- **Institutional Market Briefing** — AI-generated market context and actionable intel summary for the active ticker, built from options positioning and earnings call filings. Includes an OptionsFlow Analysis signal and regime label.
-- **Gamma Profile Chart** — Candlestick chart with an institutional gamma profile overlay — horizontal bars at key price levels showing open interest, call/put wall levels, gamma flip level, and OI by strike.
-- **Recent News** — AI-tagged news feed for the active ticker with Bullish / Neutral / Bearish sentiment labels per headline.
-
-**Screener**
-
-- **Quick Scan** — Filter the full US equity universe by price, market cap, volume, P/E ratio, and momentum.
-- **Value + Options** — Graham/Buffett fundamental filters (P/E, PEG, ROE, margins) combined with IV rank, put/call ratio, and options volume.
-- **Results Table** — Sortable output with full market context per match. Save and reload filter presets.
-
-**Options Heatmap & Flow**
-
-- **Liquidity Surface** — Net Open Interest (Calls minus Puts) heatmap across all strikes and near-term expirations. Toggle between GEX, OI, CHARM, TEX, and Z-SCORE views.
-- **Active Ticker Analysis** — Full signal dashboard combining RS, MACD, vol spike, Bollinger Band signal, call/put wall distances, OI sentiment, institutional holding percentage, structural label, and SEC filing sentiment.
-- **Global Market Context** — Side-by-side regime snapshot for SPY and QQQ with bullish odds percentage and key signals.
-
-**Options Analysis**
-
-- **Strategy Builder** — Build and price any multi-leg options strategy. Inputs: strike source (live chain or manual), expiration date, IV percentage, days to expiration, risk-free rate.
-- **P&L Projection** — Today's P&L vs at-expiry across a price range. Shows entry cost, break-even, max profit, max loss, and strategy delta.
-- **Greek Sensitivities** — Interactive chart of Delta, Gamma, Theta, and Vega across the full price range.
-
-**Live Terminal**
-
-- **Intraday Chart + GEX Walls** — Real-time candlestick with Zero Gamma Flip, Call Wall, and Put Wall drawn as structural overlays.
-- **PCR Stream** — Live put/call ratio trace updating every few seconds. SPY and QQQ toggle with PCR-9, PCR-21, and relative PCR trace chart.
-- **Logs Feed** — Live feed of significant options prints and GEX events as they hit the tape. Toggle on/off.
-
----
-
-## Insider Terminal
-
-![Insider Terminal](screenshots/insider.webp)
-
-Institutional research reports, SEC insider trades, and COT positioning. Live insider tape always visible in sidebar.
-
-**Our Reports**
-
-Historical library of weekly macro playbooks and situational flash reports. PDF and Excel upload with report thumbnails sorted by date. Weekly report upload and situational alert upload are separate dropzones.
-
-**Insiders**
-
-- **Live Insider Feed** — Real-time feed of stock trades filed by officers, directors, and 10%+ holders. Shows role (Officer / Director / 10% Owner), dollar amount, transaction description, total insider count, trade count, buys, and sells.
-- **Ticker Sidebar** — Active tickers grouped by company with buy/sell counts. Search by ticker or insider name, filter by ALL / BUYS / SELLS / EXCHANGE.
-
-**COT Positioning**
-
-- **Positioning Tape** — Commitment of Traders data ranked by 52-week z-score for NQ, BTC, GC, ES, ZN, DX, and CL.
-- **Instrument Drill-Down** — Detailed positioning view for any selected instrument: net speculative positioning in contracts, 52W z-score, extreme threshold percentage, non-commercial longs/shorts, and a 30-week historical chart.
+Market-implied rate probabilities for Fed, ECB, BOE, BOJ, RBA, and BOC. Current target rate, hold/cut/hike bias, probability percentages, next meeting date, and rate path model decomposition separating expectations from term premia.
 
 ---
 
 ## Oil Terminal
 
-Institutional crude oil terminal. Left sidebar shows live synthesis, Cushing inventory, tanker count, and risk-bias signal at all times.
+![Oil Terminal](screenshots/07_oil_terminal.png)
+
+Institutional crude oil terminal. Left sidebar shows live synthesis signal, Cushing inventory, tanker count, and risk-bias score at all times.
 
 **Flow Spreads**
 
-Real-time Brent and WTI prices with 6-month spread history. Current spread, 30-day average, 6-month min/max, standard deviation, and delta vs 30-day average. The synthesis sidebar surfaces a directional signal (Bullish / Bearish), Cushing utilization percentage, VLCC tanker count, floating storage level, and a risk-bias score from 0 to 100.
+Real-time Brent and WTI prices with 6-month spread history. Current spread, 30-day average, 6-month min/max, standard deviation, and delta vs 30-day average. Synthesis sidebar shows directional signal (Bullish / Bearish / Neutral), Cushing utilization percentage, VLCC count, floating storage, and risk-bias score 0–100.
 
 **Macro Matrix**
 
-Rolling correlation heatmap between crude, energy equities, natural gas, and the USD — covering BZ=F, CL=F, NG=F, XLE, XOM, CVX, OXY, SLB, HAL, UNG, USO, and DX-Y. Adjustable lookback window with strongest and weakest/inverse coupling lists.
+Rolling correlation heatmap between crude, energy equities, natural gas, and the USD. Adjustable lookback window with strongest and weakest/inverse coupling lists.
 
 **Vessel Intelligence**
 
-- **Live Tanker Map** — Real-time global tanker positions updated live. Click any vessel for MMSI, status, load factor, speed, and destination. Fleet load and transit activity (High / Normal / Low) displayed as aggregate metrics. Chokepoint congestion alerts for Hormuz, Suez, and Bab-el-Mandeb.
-- **Global Flow Intel** — Fleet metrics and composition breakdown: Transit Index in MBBL on water, fleet utilization percentage, and fleet split across VLCC, Suezmax, Aframax, Panamax, MR, and small tankers.
+Live global tanker map updated in real time. Click any vessel for MMSI, status, load factor, speed, destination, and ETA to key ports. Fleet load and transit activity (High / Normal / Low) as aggregate metrics. Chokepoint congestion shown for Strait of Dover, Gibraltar, Bosphorus, Suez Canal, and others. Global Flow Intel panel shows Transit Index (MBBL on water), fleet utilization, and fleet composition split across VLCC, Suezmax, Aframax, Panamax, MR, and small tankers.
+
+---
+
+## Ticker Terminal
+
+Per-stock institutional intelligence: AI briefing, gamma walls, screener, options flow, strategy builder, and live GEX feed.
+
+**Ticker Analyzer**
+
+![Ticker Analyzer](screenshots/08_ticker_analyzer.png)
+
+- **Institutional Market Briefing** — AI-generated market context and actionable intel for the active ticker. Shows OptionsFlow Analysis signal, bullish odds percentage, and regime label.
+- **Gamma Profile Chart** — Candlestick with institutional gamma profile overlay — horizontal bars at key price levels showing open interest, call/put wall levels, and gamma flip level.
+- **Recent News** — AI-tagged news feed with Bullish / Neutral / Bearish sentiment labels per headline.
+
+**Screener**
+
+- **Quick Scan** — Filter the full US equity universe by price, market cap, volume, P/E, and momentum.
+- **Value + Options** — Fundamental filters (P/E, PEG, ROE, margins) combined with IV rank, put/call ratio, and options volume.
+- **Results Table** — Sortable output with full market context. Save and reload filter presets.
+
+**Options Heatmap & Flow**
+
+![Options Flow](screenshots/09_options_flow.png)
+
+- **Liquidity Surface** — Net Open Interest (Calls minus Puts) heatmap across all strikes and near-term expirations. Toggle between GEX, OI, CHARM, TEX, and Z-SCORE views. Call Wall and Put Wall levels shown below the surface.
+- **3D IV Surface** — Implied volatility across strikes and expirations rendered as a 3D surface.
+- **3D GEX Surface** — Net dealer gamma exposure across the same strike/expiry grid.
+- **Active Ticker Analysis** — Signal dashboard: RS, MACD, vol spike, Bollinger Band signal, call/put wall distances, OI sentiment, institutional holding percentage, structural label, and filing sentiment.
+- **Global Market Context** — SPY and QQQ regime snapshot with bullish odds and key signals.
+
+**Options Analysis**
+
+- **Strategy Builder** — Build and price any multi-leg options strategy. Inputs: strike source (live chain or manual), expiration, IV, days to expiration, risk-free rate.
+- **P&L Projection** — Today's P&L vs at-expiry across price range. Entry cost, break-even, max profit, max loss, strategy delta.
+- **Greek Sensitivities** — Interactive Delta, Gamma, Theta, and Vega chart across the full price range.
+
+**Live Terminal**
+
+![Live Terminal](screenshots/10_live_terminal.png)
+
+- **Intraday Chart + GEX Walls** — Real-time candlestick with Zero Gamma Flip, Call Wall, and Put Wall as structural overlays. XGBoost forecast shows expected high and low for the session.
+- **PCR Stream** — Live put/call ratio trace (PCR-9 and PCR-21) updating on a 15-second tick.
+- **Engine Console** — Live log of GEX wall loads, data feeds, and model events as they fire.
+
+---
+
+## Insider Terminal
+
+Institutional research reports, insider trades, and COT positioning. Live insider tape always visible in sidebar.
+
+![Insiders](screenshots/11_insiders.png)
+
+**Our Reports**
+
+Historical library of weekly macro playbooks and situational flash reports. PDF and Excel upload with report thumbnails sorted by date.
+
+**Insiders**
+
+Live feed of stock trades filed by officers, directors, and 10%+ holders. Shows role (Officer / Director / 10% Owner), dollar amount, and transaction description. Aggregated counts of total insiders, total trades, buys, and sells. Search by ticker or insider name, filter by ALL / BUYS / SELLS / EXCHANGE. Ticker sidebar groups all activity by company with buy/sell counts.
+
+**COT Positioning**
+
+Commitment of Traders data ranked by 52-week z-score for NQ, BTC, GC, ES, ZN, DX, and CL. Drill into any instrument for net speculative positioning, z-score, extreme threshold percentage, non-commercial longs/shorts, and a 30-week historical chart.
 
 ---
 
