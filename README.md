@@ -1,4 +1,4 @@
-# macro-dashboard
+# <img src="favicon.png" width="35" align="top" style="margin-right: 8px;" alt="logo"> macro-dashboard
 
 A trading terminal that consolidates macro data, options positioning, sector rotation, calendars, and insider activity into one place.
 
