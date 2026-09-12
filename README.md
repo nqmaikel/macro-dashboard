@@ -10,6 +10,25 @@ A trading terminal that consolidates macro data, options positioning, sector rot
 
 ---
 
+## High-level workflow
+
+One path through the terminal's research views, from broad market context to instrument-level detail and positioning.
+
+```mermaid
+flowchart LR
+    A["Macro context"] --> B["Sector rotation"]
+    B --> C["Events and calendars"]
+    C --> D["Ticker and options detail"]
+    D --> E["Positioning review"]
+
+    classDef stage fill:#f1f5f9,stroke:#64748b,color:#0f172a
+    classDef outcome fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    class A,B,C,D stage
+    class E outcome
+```
+
+---
+
 ## Macro & Econ
 
 Central bank liquidity, yield dynamics, and macro regime intelligence across four sub-sections: Economy & Rates, Risk & Sentiment, Global Matrix, and Seasonals.
@@ -193,6 +212,8 @@ React + Vite frontend, FastAPI backend, Supabase (Postgres), Redis. ML layer: Fi
 ---
 
 Closed-source. For questions: admin@the-macro-dashboard.com
+
+Only presentation material is published; source code and private data remain private.
 
 ---
 
