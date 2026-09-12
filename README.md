@@ -193,3 +193,7 @@ React + Vite frontend, FastAPI backend, Supabase (Postgres), Redis. ML layer: Fi
 ---
 
 Closed-source. For questions: admin@the-macro-dashboard.com
+
+---
+
+**Last showcase review:** 2026-09-12 (Europe/Paris).
