@@ -58,33 +58,35 @@ The common header keeps the broader workspace available while a specialized char
 
 The diagram describes the main boundaries found in the implementation. Analytical screens use a common React application, while a modular Python API organizes data retrieval, analysis, accounts and supporting services.
 
+**Research requests**
+
 ```mermaid
 flowchart TB
-    subgraph Client["React application"]
-        Shell["Navigation, command palette and access state"]
-        Pages["Lazy-loaded research workspaces"]
-        Charts["Interactive charts, tables and filters"]
-        Shell --> Pages
-        Pages --> Charts
-    end
+    Shell["React navigation shell"] --> Pages["Lazy-loaded workspaces"]
+    Pages --> Charts["Charts, tables and filters"]
+    Charts <-->|"Requests and responses"| Routes["Macro, market, ticker,<br/>news and report routes"]
+    Limits["Request limiting"] --> Routes
+    Routes --> Analysis["Data preparation<br/>and analysis"]
+    Analysis <--> Sources["Market and economic<br/>data services"]
+    Analysis --> Reports["Report generation"]
+```
 
-    subgraph API["FastAPI service"]
-        Routes["Macro, market, ticker, news and report routes"]
-        Analysis["Data preparation and analytical services"]
-        Accounts["Authentication and entitlement routes"]
-        Limits["Request limiting"]
-        Routes --> Analysis
-        Limits --> Routes
-    end
+**Accounts and access**
 
-    Charts <-->|"Research requests and responses"| Routes
-    Shell <--> Accounts
-    Accounts <--> Database["Supabase account and application records"]
-    Analysis <--> Cache["Redis TTL cache with in-memory fallback"]
-    Analysis <--> Sources["External market and economic data services"]
-    Background["Background refresh and report tasks"] --> Analysis
-    Background --> Cache
-    Analysis --> Reports["Report generation services"]
+```mermaid
+flowchart TB
+    Shell["Navigation, commands<br/>and access state"]
+    Shell <--> Accounts["Authentication<br/>and entitlements"]
+    Accounts <--> Database["Supabase account<br/>and application records"]
+```
+
+**Caching and background work**
+
+```mermaid
+flowchart TB
+    Tasks["Background refresh<br/>and report tasks"] --> Analysis["Analytical services"]
+    Tasks --> Cache["Redis TTL cache<br/>with in-memory fallback"]
+    Analysis <--> Cache
 ```
 
 | Layer | Implementation role |
